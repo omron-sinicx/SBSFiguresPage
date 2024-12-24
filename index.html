@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SBS Figures: Pre-training Figure QA from Stage-by-Stage Synthesized Images">
+  <meta name="keywords" content="Figure, Chart, Question Answering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SBS Figures: Pre-training Figure QA from Stage-by-Stage Synthesized Images</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SBS Figures: Pre-training Figure QA from Stage-by-Stage Synthesized Images</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://sites.google.com/view/risashinoda/home">Risa Shinoda</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://ksaito-ut.github.io/">Kuniaki Saito</a><sup>2</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://shohei-ta-ds7.github.io/">Shohei Tanaka</a><sup>2</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://toshohirasawa.github.io/">Tosho Hirasawa</a><sup>2</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://yoshitakaushiku.net/index.html">Yoshitaka Ushiku</a><sup>2</sup>
+            </span>
+          </div>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Kyoto University,</span>
+            <span class="author-block"><sup>2</sup>OMRON SINIC X Corp.</span>
+          </div>
+          <font size="4">The AAAI-25 Workshop on Document Understanding and Intelligence
+          </font>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.17606"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/omron-sinicx/sbsfigures"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-database"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/omron-sinicx/SBSFigures"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div style="display: flex; justify-content: center;">
+        <img src="static/images/flow_new.png" alt="Banner image" style="max-width: 85%; height: auto; display: block;">
+      </div>
+          <h2 class="subtitle has-text-centered"><br>
+            Generation pipeline of SBSFigures. SBSFigures was created using a fully synthetic method. First, we generate the visualization data, represented in JSON format, containing complete numbers, text, and colors. Next, we produce figure images from this data using pre-defined, error-free Python scripts. Finally, we generate dense and accurate QA pairs from visualization data without the need for OCR.
+          </h2>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Building a large-scale figure QA dataset requires a considerable amount of work, from gathering and selecting figures to extracting attributes like text, numbers, and colors, and generating QAs. Although recent developments in LLMs have led to efforts to synthesize figures, most of these focus primarily on QA generation. 
+            Additionally, creating figures directly using LLMs often encounters issues such as code errors, similar-looking figures, and repetitive content in figures.
+            To address this issue, we present SBSFigures(Stage-by-Stage Synthetic Figures), a dataset for pre-training figure QA. Our proposed pipeline enables the creation of chart figures with complete annotations of the visualized data and dense QA annotations without any manual annotation process.
+            Our stage-by-stage pipeline makes it possible to create diverse topic and appearance figures efficiently while minimizing code errors.
+            Our SBSFigures demonstrate a strong pre-training effect, making it possible to achieve efficient training with a limited amount of real-world chart data starting from our pre-trained weights. SBSFigures and its generation code and prompt are publicly available. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset Distribution</h2>
+        <p>
+          Each figure represents (a) Theme distribution of SBSFigures. (b) QA distribution of SBSFigures.
+        </p>
+        <img src="static/images/distribution.png" alt="Banner image" height="110%">
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <h2 class="title is-3">Dataset Examples</h2>
+          <p>
+            The figures show diverse visual variations, with each data content containing around 2,000 combinations of visual components. Additionally, our pipeline generates dense and precise QA pairs, requiring complex reasoning skills to address the questions.
+          </p>
+          <img src="static/images/example.png" alt="Banner image" height="110%">
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Benchmarks on Figure Question Answering</h2>
+        <h3 class="custom-h3">Main Results</h3>
+        <div class="content has-text-justified">
+        <p>
+          SBSFigures shows strong pre-training effect. We shows the ChartQA test result on human split and augmentation (aug.) split. (Table1) SBSFigures shows suprerior pre-training effect compared eith other synthetic datasets.
+          (Table2) SBSFgire shows the pre-training effect on both Donut and Pix2Srtruct models.
+        </p>
+       </div>
+        <img src="static/images/table_main.png" alt="Banner image" height="110%">
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      
+      <div class="column is-four-fifths">
+        <h3 class="custom-h3">Investigation Results</h3>
+        <div class="content has-text-justified">
+        <p>
+          (Table8) Our SBSFigures shows strong pre-training effect on multiple dataset dine-tuning. 
+          (Table9) Starting with SBSFigures pre-training proves to be effective for training figure QA models. This suggests that pre-training with SBSFigures can efficiently enhance the performance of existing figure QA models.
+        </p>
+      </div>
+        <img src="static/images/explorative.png" alt="Banner image" height="110%">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-3">Data Availability</h3>
+        <div class="content has-text-justified">
+        <p>
+          You can download our SBS Figures dataset (1M figures, 4.2M QA pairs) from Hugging Face: <a href="https://huggingface.co/datasets/omron-sinicx/sbsfigures">Hugging Face Dataset</a>.
+          Our code also allows you to generate as many figures as you want by running a single bash script. Please refer to our <a href="https://github.com/omron-sinicx/SBSFigures">GitHub repository</a>.          
+        </p>
+    </div>
+  </div>
+</section>   
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+</code></pre>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <h3 class="title is-3">Acknowledgment</h3>
+          <p>
+            This work was supported by JST Moonshot R&D Program,Grant Number JPMJMS2236.     
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
